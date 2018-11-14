@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/css/1.css}" rel="stylesheet"/>
+</head>
+<body>
+<p th:text="'Hello, ' + ${title}" /><br/>
+<input type="text" id="msg" /><button id="send_btn" onclick="sendMsg()">发送</button>
+<div id="content"></div>
+<script th:src="@{/js/socket.io.js}"></script>
+<script>
+    //alert("page load finish.");
+    var socket;
+    function initSocket(){
+        //var socket = io('http://localhost:9092');  //本地windows测试环境
+        socket = io('localhost:9092'); //正式发布环境
+        socket.on('connect', function () {
+            console.log('socket连接成功');
+        });
+
+        socket.on('disconnect', function () {
+            console.log('socket连接失败');
+        });
+
+        socket.on('enewbuy', function (time, res) {
+            //....收到消息后具体操作
+            alert(time+res);
+        });
+
+        socket.on('messageevent', function(data) {
+            //console.log(data.msgContent);
+            var d1 = document.getElementById('content');
+            if(data.msgType=="1"){
+                //alert(data.msgContent);
+                d1.insertAdjacentHTML('afterend', '<p>'+'我（'+data.userId+'）:'+data.msgContent+'</p>');
+            }else{
+                //alert("一个用户给你发来消息:"+data.msgContent);
+                d1.insertAdjacentHTML('afterend', '<p>'+data.userId+':'+data.msgContent+'</p>');
+            }
+        })
+    }
+    initSocket();
+    //socket.emit('messageevent', "hello,this is client message");
+    function sendMsg(){
+        //alert("点击发送按钮"+document.getElementById("msg").value);
+        socket.emit('messageevent',{msgContent:document.getElementById("msg").value});
+    }
+</script>
+</body>
+</html>
