@@ -37,6 +37,9 @@
 		<mysql.version>8.0.12</mysql.version>
 		<druid.version>1.1.9</druid.version>
 		<netty-socketio.version>1.7.11</netty-socketio.version>
+		<springboot-admin-starter-server.version>2.0.1</springboot-admin-starter-server.version>
+		<springboot-admin-server-ui.version>2.0.1</springboot-admin-server-ui.version>
+		<springboot-admin-starter-client.version>2.0.1</springboot-admin-starter-client.version>
 	</properties>
 
 	<dependencyManagement>
@@ -79,6 +82,25 @@
 				<groupId>com.corundumstudio.socketio</groupId>
 				<artifactId>netty-socketio</artifactId>
 				<version>${netty-socketio.version}</version>
+			</dependency>
+
+			<!-- springboot admin -->
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-starter-server</artifactId>
+				<version>${springboot-admin-starter-server.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-server-ui</artifactId>
+				<version>${springboot-admin-server-ui.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>de.codecentric</groupId>
+				<artifactId>spring-boot-admin-starter-client</artifactId>
+				<version>${springboot-admin-starter-client.version}</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

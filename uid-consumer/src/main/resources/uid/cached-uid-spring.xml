@@ -34,6 +34,6 @@
 	</bean>
 
 	<!-- Import mybatis config -->
-	<import resource="classpath:/uid/mybatis-spring.xml" />
+	<!--<import resource="classpath:/uid/mybatis-spring.xml" />-->
 
 </beans>
