@@ -9,11 +9,13 @@
 	<packaging>pom</packaging>
 
 	<modules>
+		<module>springboot-dubbo-api</module>
 		<module>springboot-dubbo-server</module>
 		<module>springboot-dubbo-client</module>
 		<module>uid-consumer</module>
 		<module>uid-generator</module>
 		<module>websocket-server</module>
+		<module>springboot-admin</module>
 	</modules>
 
 	<name>sblearn</name>
@@ -31,6 +33,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 		<!-- 在properties中统一控制依赖包的版本，更清晰-->
+		<dubbo.version>0.2.0</dubbo.version>
 		<zookeeper.version>3.4.12</zookeeper.version>
 		<netty-socketio.version>1.7.11</netty-socketio.version>
 		<mybatis.version>1.3.2</mybatis.version>
@@ -45,6 +48,12 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
+				<groupId>com.alibaba.boot</groupId>
+				<artifactId>dubbo-spring-boot-starter</artifactId>
+				<version>${dubbo.version}</version>
+			</dependency>
+
+			<dependency>
 				<groupId>org.apache.zookeeper</groupId>
 				<artifactId>zookeeper</artifactId>
 				<version>${zookeeper.version}</version>
@@ -57,7 +66,7 @@
 				<version>${netty-socketio.version}</version>
 			</dependency>
 
-			<!--for Mysql-->
+			<!--Mysql-->
 			<dependency>
 				<groupId>mysql</groupId>
 				<artifactId>mysql-connector-java</artifactId>

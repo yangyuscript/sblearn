@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.yangyuscript</groupId>
-    <artifactId>springboot-dubbo-server</artifactId>
+    <artifactId>springboot-dubbo-api</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>springboot-dubbo-server</name>
-    <description>dubbo服务生产者</description>
+    <name>springboot-dubbo-api</name>
+    <description>Demo project for Spring Boot</description>
 
     <parent>
         <groupId>com.yangyuscript</groupId>
@@ -27,17 +27,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba.boot</groupId>
-            <artifactId>dubbo-spring-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.yangyuscript</groupId>
-            <artifactId>springboot-dubbo-api</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
