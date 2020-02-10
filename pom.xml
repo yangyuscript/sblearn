@@ -35,7 +35,7 @@
         <java.version>1.8</java.version>
         <!-- 在properties中统一控制依赖包的版本，更清晰-->
         <dubbo.version>0.2.0</dubbo.version>
-        <zookeeper.version>3.4.12</zookeeper.version>
+        <zookeeper.version>3.4.14</zookeeper.version>
         <netty-socketio.version>1.7.11</netty-socketio.version>
         <mybatis.version>1.3.2</mybatis.version>
         <mysql.version>8.0.12</mysql.version>
