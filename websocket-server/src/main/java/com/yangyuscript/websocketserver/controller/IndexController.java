@@ -7,10 +7,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class IndexController {
-    @GetMapping(value="index")
-    public ModelAndView index(ModelAndView mv){
+    @GetMapping(value = "index")
+    public ModelAndView index(ModelAndView mv) {
         mv.setViewName("/index");
-        mv.addObject("title","yangyuscript");
+        mv.addObject("title", "yangyuscript");
         //MessageEventHandler.sendBuyLogEvent();
         return mv;
     }

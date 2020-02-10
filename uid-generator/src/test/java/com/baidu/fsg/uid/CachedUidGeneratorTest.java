@@ -19,11 +19,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Test for {@link CachedUidGenerator}
- * 
+ *
  * @author yutianbao
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "classpath:uid/cached-uid-spring.xml" })
+@ContextConfiguration(locations = {"classpath:uid/cached-uid-spring.xml"})
 public class CachedUidGeneratorTest {
     private static final int SIZE = 7000000; // 700w
     private static final boolean VERBOSE = false;
@@ -34,7 +34,7 @@ public class CachedUidGeneratorTest {
 
     /**
      * Test for serially generate
-     * 
+     *
      * @throws IOException
      */
     @Test
@@ -51,7 +51,7 @@ public class CachedUidGeneratorTest {
 
     /**
      * Test for parallel generate
-     * 
+     *
      * @throws InterruptedException
      * @throws IOException
      */
@@ -86,7 +86,7 @@ public class CachedUidGeneratorTest {
      * Woker run
      */
     private void workerRun(Set<Long> uidSet, AtomicInteger control) {
-        for (;;) {
+        for (; ; ) {
             int myPosition = control.updateAndGet(old -> (old == SIZE ? SIZE : old + 1));
             if (myPosition == SIZE) {
                 return;

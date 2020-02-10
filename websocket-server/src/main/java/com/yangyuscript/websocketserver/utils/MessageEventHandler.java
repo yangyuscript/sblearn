@@ -40,13 +40,13 @@ public class MessageEventHandler {
     @OnEvent(value = "messageevent")
     public void onEvent(SocketIOClient client, AckRequest request, MessageInfo data) {
         System.out.println("发来消息：" + data.getMsgContent());
-        MessageInfo msg =new MessageInfo();
+        MessageInfo msg = new MessageInfo();
         msg.setMsgType("1");
         msg.setMsgContent(data.getMsgContent());
         msg.setUserId(client.getSessionId().toString());
         socketIoServer.getClient(client.getSessionId()).sendEvent("messageevent", msg);
         for (UUID clientId : listClient) {
-            if (socketIoServer.getClient(clientId) == null || clientId == client.getSessionId()){
+            if (socketIoServer.getClient(clientId) == null || clientId == client.getSessionId()) {
                 continue;
             }
             msg.setMsgType("2");
@@ -59,7 +59,7 @@ public class MessageEventHandler {
         String dateTime = DateUtils.getTimeYYYYmmDDHHMMSS();
 
         for (UUID clientId : listClient) {
-            if (socketIoServer.getClient(clientId) == null){
+            if (socketIoServer.getClient(clientId) == null) {
                 continue;
             }
             socketIoServer.getClient(clientId).sendEvent("enewbuy", dateTime, 1);

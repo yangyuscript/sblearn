@@ -31,14 +31,14 @@ import com.baidu.fsg.uid.worker.WorkerIdAssigner;
 
 /**
  * Represents an implementation of {@link UidGenerator}
- *
+ * <p>
  * The unique id has 64bits (long), default allocated as blow:<br>
  * <li>sign: The highest bit is 0
  * <li>delta seconds: The next 28 bits, represents delta seconds since a customer epoch(2016-05-20 00:00:00.000).
- *                    Supports about 8.7 years until to 2024-11-20 21:24:16
+ * Supports about 8.7 years until to 2024-11-20 21:24:16
  * <li>worker id: The next 22 bits, represents the worker's id which assigns based on database, max id is about 420W
  * <li>sequence: The next 13 bits, represents a sequence within the same second, max for 8192/s<br><br>
- *
+ * <p>
  * The {@link DefaultUidGenerator#parseUID(long)} is a tool method to parse the bits
  *
  * <pre>{@code
@@ -47,7 +47,7 @@ import com.baidu.fsg.uid.worker.WorkerIdAssigner;
  * +------+----------------------+----------------+-----------+
  *   1bit          28bits              22bits         13bits
  * }</pre>
- *
+ * <p>
  * You can also specified the bits by Spring property setting.
  * <li>timeBits: default as 28
  * <li>workerBits: default as 22
@@ -61,24 +61,34 @@ import com.baidu.fsg.uid.worker.WorkerIdAssigner;
 public class DefaultUidGenerator implements UidGenerator, InitializingBean {
     private static final Logger LOGGER = LoggerFactory.getLogger(DefaultUidGenerator.class);
 
-    /** Bits allocate */
+    /**
+     * Bits allocate
+     */
     protected int timeBits = 28;
     protected int workerBits = 22;
     protected int seqBits = 13;
 
-    /** Customer epoch, unit as second. For example 2016-05-20 (ms: 1463673600000)*/
+    /**
+     * Customer epoch, unit as second. For example 2016-05-20 (ms: 1463673600000)
+     */
     protected String epochStr = "2016-05-20";
     protected long epochSeconds = TimeUnit.MILLISECONDS.toSeconds(1463673600000L);
 
-    /** Stable fields after spring bean initializing */
+    /**
+     * Stable fields after spring bean initializing
+     */
     protected BitsAllocator bitsAllocator;
     protected long workerId;
 
-    /** Volatile fields caused by nextId() */
+    /**
+     * Volatile fields caused by nextId()
+     */
     protected long sequence = 0L;
     protected long lastSecond = -1L;
 
-    /** Spring property */
+    /**
+     * Spring property
+     */
     protected WorkerIdAssigner workerIdAssigner;
 
     @Override
@@ -149,7 +159,7 @@ public class DefaultUidGenerator implements UidGenerator, InitializingBean {
                 currentSecond = getNextSecond(lastSecond);
             }
 
-        // At the different second, sequence restart from zero
+            // At the different second, sequence restart from zero
         } else {
             sequence = 0L;
         }

@@ -15,13 +15,13 @@ public class WebsocketServerApplication {
     }
 
     @Bean
-    public SocketIOServer socketIOServer(){
+    public SocketIOServer socketIOServer() {
         Configuration config = new Configuration();
         String os = System.getProperty("os.name");
-        if(os.toLowerCase().startsWith("win")){
+        if (os.toLowerCase().startsWith("win")) {
             System.out.println("this is windows");
             config.setHostname("localhost");
-        }else{
+        } else {
             //正式发布时使用服务器公网ip
             config.setHostname("123.123.123.123");
         }

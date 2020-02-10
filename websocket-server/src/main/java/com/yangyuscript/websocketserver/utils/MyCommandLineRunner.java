@@ -8,17 +8,16 @@ import org.springframework.stereotype.Component;
 
 
 /**
- *
- *@author yangyuscript
- *@date: 17:24 2018/11/13
+ * @author yangyuscript
+ * @date: 17:24 2018/11/13
  **/
 @Component
-@Order(value=1)
+@Order(value = 1)
 public class MyCommandLineRunner implements CommandLineRunner {
     private final SocketIOServer server;
 
     @Autowired
-    public MyCommandLineRunner(SocketIOServer server){
+    public MyCommandLineRunner(SocketIOServer server) {
         this.server = server;
     }
 

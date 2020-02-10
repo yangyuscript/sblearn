@@ -12,7 +12,7 @@ public class UidTestController {
     private UidGeneratorService uidGeneratorService;
 
     @GetMapping("/getUid")
-    public String getUid(){
+    public String getUid() {
         return String.valueOf(uidGeneratorService.getUid());
     }
 }

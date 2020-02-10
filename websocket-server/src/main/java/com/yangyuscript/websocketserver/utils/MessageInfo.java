@@ -1,10 +1,8 @@
 package com.yangyuscript.websocketserver.utils;
 
 /**
- *
- *@author yangyuscript
- *@date: 17:26 2018/11/13
- *
+ * @author yangyuscript
+ * @date: 17:26 2018/11/13
  **/
 public class MessageInfo {
     private String msgContent;

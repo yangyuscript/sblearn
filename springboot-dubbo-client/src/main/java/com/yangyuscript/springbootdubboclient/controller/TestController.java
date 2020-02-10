@@ -13,7 +13,7 @@ public class TestController {
     private DemoService demoService;
 
     @GetMapping("/hello")
-    public String hello(){
+    public String hello() {
         return demoService.hello("hello world");
     }
 }

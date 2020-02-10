@@ -28,7 +28,7 @@ import org.slf4j.LoggerFactory;
 /**
  * Named thread in ThreadFactory. If there is no specified name for thread, it
  * will auto detect using the invoker classname instead.
- * 
+ *
  * @author yutianbao
  */
 public class NamingThreadFactory implements ThreadFactory {
@@ -102,7 +102,7 @@ public class NamingThreadFactory implements ThreadFactory {
 
     /**
      * Get the method invoker's class name
-     * 
+     *
      * @param depth
      * @return
      */
@@ -117,7 +117,7 @@ public class NamingThreadFactory implements ThreadFactory {
 
     /**
      * Get sequence for different naming prefix
-     * 
+     *
      * @param invoker
      * @return
      */
