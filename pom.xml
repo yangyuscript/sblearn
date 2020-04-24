@@ -19,7 +19,7 @@
         <module>active-mq</module>
     </modules>
 
-    <name>sblearn</name>
+    <name>sb-zk-dubbo</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
